@@ -10,10 +10,11 @@
    # Pull tomcat latest image from dockerhub 
    From tomcat
    # Maintainer
-   MAINTAINER "AR Shankar" 
+   MAINTAINER "Peter Nkolo" linuxstrainings@gmail.com 
 
    # copy war file on to container 
    COPY ./webapp.war /usr/local/tomcat/webapps
+   EXPOSE 8080
 ### Integration between Docker-host and Jenkins
 
 Install "publish Over SSH"
@@ -56,8 +57,8 @@ Enable connection between Docker-host and Jenkins
 	       - Exec command: 
                 ```sh 
                 cd /home/dockeradmin;
-                docker build -t simple-devops-image .; 
-                docker run -d --name simple-devops-container -p 8080:8080 simple-devops-image;
+                docker build -t qa-image .; 
+                docker run -d --name qa-container -p 8090:8080 qa-image;
                 ```
 
 Save and run the job now.
